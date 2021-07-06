@@ -3,10 +3,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: sample-app
+  namespace: argocd
 spec:
   destination:
     name: ''
-    namespace: default
+    namespace: sample-app
     server: 'https://kubernetes.default.svc'
   source:
     path: charts
