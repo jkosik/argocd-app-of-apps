@@ -4,7 +4,7 @@ Deployment of a sample Helm chart via ArgoCD to existing K8S cluster with ArgoCD
 
 ## Repository structure
 1. /charts contains one or more Helm Charts referenced from ArgoCD Application definition (point 2.).
-2. `argo-deploy.yaml` deploys Custom Resources to the existing ArgoCD server. Primarily `Application` resource is needed to be deployed. Optionally application owner can customize ArgoCD setting even further using the same techniques and define ArgoCD Projects, predefined Repositories, target Kubernetes Clusters and so on.
+2. `argo-deploy.yaml` deploys Custom Resources to the existing ArgoCD server. Primarily `Application` resource is needed to be deployed. Optionally application owner can [customize ArgoCD setting](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#atomic-configuration) even further using the same techniques and define ArgoCD Projects, predefine Repositories, target Kubernetes Clusters and so on.
 
 Additional notes:
 - The same `argo-deploy.yaml` can be used to deploy multiple applications or multiple versions of the application, e.g. DEV/STAGE/PROD to the target cluster.
