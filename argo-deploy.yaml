@@ -14,3 +14,6 @@ spec:
     repoURL: 'https://github.com/jkosik/sample-app'
     targetRevision: dev
   project: default
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
