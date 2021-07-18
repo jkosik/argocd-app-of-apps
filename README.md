@@ -1,12 +1,10 @@
 # sample-app
-Deployment of a sample Helm chart via ArgoCD to existing K8S cluster with ArgoCD built using https://github.com/jkosik/gke-deployer.
-
+Deployment of a sample Helm chart via ArgoCD using [App of Apps pattern](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#app-of-apps).
+GKE+ArgoCD can be built using https://github.com/jkosik/gke-deployer.
 
 ## Repository structure
 - `/argocd` directory contains [ArgoCD self-configuration](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#atomic-configuration) and Application manifest(s) pointing to `/charts` or any other Helm deployment code, even in external git repositories.
 - `/charts` contains one or more Helm Charts referenced from ArgoCD Application definition.
-
-This project follows [App of Apps pattern](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#app-of-apps).
 
 ## Quick start
 1. Manually create ArgoCD master Application which follows changes in `/argo-cd` and Sync.
