@@ -1,0 +1,16 @@
+# GCP SA jsons
+creds*
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
+
+# Crash log files
+crash.log
+
+# Use sealedsecret*.yaml
+secret*.yaml
+secret*.yml
