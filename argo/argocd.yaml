@@ -17,3 +17,16 @@ spec:
   syncPolicy:
     syncOptions:
       - CreateNamespace=true
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: private-repo
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  url: https://github.com/argoproj/private-repo
+  password: my-password
+  username: my-username

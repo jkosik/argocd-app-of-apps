@@ -3,21 +3,15 @@ Deployment of a sample Helm chart via ArgoCD to existing K8S cluster with ArgoCD
 
 
 ## Repository structure
-1. /charts contains one or more Helm Charts referenced from ArgoCD Application definition (point 2.).
-2. `argo-deploy.yaml` deploys Custom Resources to the existing ArgoCD server. Primarily `Application` resource is needed to be deployed. Optionally application owner can [customize ArgoCD setting](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#atomic-configuration) even further using the same techniques and define ArgoCD Projects, predefine Repositories, target Kubernetes Clusters and so on.
+- `/argocd` directory contains ArgoCD configuration - Application manifests, ArgoCD configuration,...Selfmanaged ArgoCD will observe `/argocd` and configure itself. See [example manifests](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#atomic-configuration).
+- `/charts` contains one or more Helm Charts referenced from ArgoCD Application definition (point 2.).
+- `/argocd` directory can configure environment to follow git branch management of the application and deploy the whole dev/stage/prod stacks in an automated fashion to the repspective namespaces.
 
-Additional notes:
-- The same `argo-deploy.yaml` can be used to deploy multiple applications or multiple versions of the application, e.g. DEV/STAGE/PROD to the target cluster.
-- This repo can have any git branch management. Different branches of the git repository can be separately referenced from ArgoCD Application.resources.
-- It is expected that `/charts` change across git branches and `argo-deploy.yaml` is rather static and deployed from the `main` branch as a one-time job.
+## Quick start
+Manually create ArgoCD Application to follow changes in `/argocd` directory.
 
-## How to deploy argo-deploy.yaml
-By default GKE cluster is a private one without Kubernetes API exposed to external network. We deploy `argo-deploy.yaml` via the Jumphost.
-```
-export JH_IP=`gcloud compute instances describe jh --format='get(networkInterfaces[0].accessConfigs[0].natIP)'`
-ssh user@$JH_IP -i PRIVATE_SSH_KEY 'kubectl apply -f argo-deploy.yaml -n argocd'
-```
+## Secrets
+Sometimes we need to store Secrets directly in git. Most prevalent options are Mozilla SOPS ans Bitnami Sealed Secrets. I am using SOPS since Sealed Secrets need first to establish trust with the target cluster and usecase of multiple target cluster can make things peroblematic. Decoupling Secret encryption from target cluster makes sense for certain usecases.
+ArgoCD object requiring Secrets might be `Repository` or `Cluster` resources.
 
-There are also [other ways how to manage ArgoCD](https://github.com/jkosik/gke-deployer/blob/main/docs/argocd.md).
-
-
+TBD
