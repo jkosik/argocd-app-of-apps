@@ -3,10 +3,10 @@ Deployment of a sample Helm chart via ArgoCD to existing K8S cluster with ArgoCD
 
 
 ## Repository structure
-- `/argocd` directory contains ArgoCD configuration - Application manifests and any other [ArgoCD configuration](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#atomic-configuration). This Self-managed ArgoCD will observe `/argocd` and configure itself. The Application manifest will point to `/charts` repository, optionally in multiple branches for dev/stage/prod workflow.
+- `/argocd` directory contains [ArgoCD self-configuration](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#atomic-configuration) and Application manifest(s) pointing to `/charts` or any other Helm deployment code, even in external git repositories.
 - `/charts` contains one or more Helm Charts referenced from ArgoCD Application definition.
 
-Also check [App of Apps pattern](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#atomic-configuration) for multiple app deployment.
+This project follows [App of Apps pattern](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#app-of-apps).
 
 ## Quick start
 1. Manually create ArgoCD master Application which follows changes in `/argo-cd` and Sync.
