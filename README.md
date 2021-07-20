@@ -14,3 +14,5 @@ ArgoCD also deploys child Applications defined in `/argo-cd`. Child applications
 ## Secrets
 When configuring ArgoCD GitOps way, we need to store secret values for e.g. `Repository` or `Cluster` resource manifests. [SealedSecrets](https://github.com/jkosik/gke-deployer#secrets-management) is one of the options to keep secret values directly in the version system.
 
+## Additional notes
+- GitOps with ArgoCD could be supported by [Argo Autopilot](https://github.com/argoproj-labs/argocd-autopilot).
