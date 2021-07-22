@@ -7,7 +7,7 @@ GKE+ArgoCD can be built using https://github.com/jkosik/gke-deployer.
 - `/charts` contains one or more Helm Charts referenced from ArgoCD Application definition.
 
 ## Quick start
-1. Manually create ArgoCD master Application which follows changes in `/argo-cd` and Sync.
+1. Create ArgoCD master Application which follows changes in `/argo-cd` and Sync. Use ArgoCD UI or deploy `master-application.yaml` manifest.
 2. ArgoCD will configure itself, e.g. deploys updated `agrocd-cm.yaml` ConfigMap, updates Repositories and Repository credentials.
 ArgoCD also deploys child Applications defined in `/argo-cd`. Child applications can point to any external git/Helm repo accessible to ArgoCD.
 
