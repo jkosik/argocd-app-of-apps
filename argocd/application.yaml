@@ -16,5 +16,6 @@ spec:
   project: default
   syncPolicy:
     syncOptions:
+      - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
 
