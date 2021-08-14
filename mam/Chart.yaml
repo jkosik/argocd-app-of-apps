@@ -1,5 +1,0 @@
-apiVersion: v1
-name: mythermoapp
-description: Dummy Chart.yaml. ArgoCD requires Helm structure when using external values file
-version: 0.0.1
-
