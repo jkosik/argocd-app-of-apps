@@ -1,4 +1,4 @@
-# sample-app
+# App of Apps, Sealed Secrets, ArgoCD self-configuration
 Deployment of a sample application via ArgoCD using [App of Apps pattern](https://argoproj.github.io/argo-cd/operator-manual/declarative-setup/#app-of-apps).
 GKE+ArgoCD can be built using https://github.com/jkosik/gke-deployer.
 
