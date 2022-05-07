@@ -8,8 +8,7 @@ GKE+ArgoCD can be built using https://github.com/jkosik/gke-deployer.
 - In our case Helm Chart for child application is stored in a separate `/charts` directory.
 
 ### Deployment
-1. Deploy [ArgoCD Master Application](https://github.com/jkosik/argocd-app-of-apps/blob/main/master-application.yaml) to existing K8S cluster followint `/argocd` folder in this repository.
-2. Master Application acts as an ArgoCD Application of Applications and follows further
+1. Deploy [ArgoCD Master Application](https://github.com/jkosik/argocd-app-of-apps/blob/main/master-application.yaml) to existing K8S cluster.
 
 ### Secrets
 When configuring ArgoCD GitOps way, we need to store secret values for e.g. `Repository` or `Cluster` resource manifests. [SealedSecrets](https://github.com/jkosik/gke-deployer#secrets-management) is one of the options to keep secret values directly in the version system.
