@@ -2,16 +2,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sample-app
+  name: app1
   namespace: argocd
 spec:
   destination:
     name: ''
-    namespace: sample-app
+    namespace: app1
     server: 'https://kubernetes.default.svc'
   source:
     path: charts
-    repoURL: 'https://github.com/jkosik/sample-app'
+    repoURL: 'https://github.com/jkosik/app1-helm-chart'
     targetRevision: main
   project: default
   syncPolicy:
